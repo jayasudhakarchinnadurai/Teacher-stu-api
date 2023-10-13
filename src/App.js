@@ -1,9 +1,11 @@
 import './App.css';
 
 import { Switch, Route, useHistory } from 'react-router-dom/cjs/react-router-dom';
-import Teacher from './Teacher/teacherdata';
+import Teacher from './student/studentdata.js';
 import { useEffect, useState } from 'react';
-import View from './Teacher/teacherdetail';
+import View from './student/studentails.js';
+import Edituser from './student/create.js';
+import Edit from './student/edit.js';
 
 
 function App() {
@@ -35,7 +37,8 @@ function App() {
  <Route exact path='/' >
   
    <h1>Welcome</h1>
-   <button onClick={()=>history.push('/teacher')}>click</button>
+   <h2>student and Teacher dashboard</h2>
+   <button onClick={()=>history.push('/student')}>click</button>
    </Route>
 
 
@@ -44,11 +47,20 @@ function App() {
   </Route>
 
 
- <Route path='/teacher'>
+ <Route path='/student'>
 
  <Teacher  user={user}
  setuser={setuser}
  />
+ </Route>
+
+
+ <Route path="/create">
+  <Edituser user={user} setuser={setuser}></Edituser>
+ </Route>
+
+ <Route path="/edit/:id">
+  <Edit user={user} setuser={setuser}></Edit>
  </Route>
 
  

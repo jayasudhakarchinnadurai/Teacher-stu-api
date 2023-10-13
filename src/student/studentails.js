@@ -6,10 +6,13 @@ function View({user}){
     const {id}=useParams();
     
     const per=user[id];
-    console.log(per)
+    
     return(
      <div>
-        <p>Name</p>
+      <h2>Student Details</h2>
+        <h3>{per.name}</h3>
+        <p>{per.email}</p>
+        <p>{per.batch}</p>
      </div>
     )
 }
